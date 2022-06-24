@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { Component } from "react";
 import Carousel from "./Carousel";
 import ErrorBoundary from "./ErrorBoundary";
+import ThemeContext from "./ThemeContext";
 
 class Details extends Component {
     state = { loading: true };
@@ -30,7 +31,11 @@ class Details extends Component {
                     <h2>
                         {animal} - {breed} - {city}, {state}
                     </h2>
-                    <button>Adopt {name}</button>
+                    <ThemeContext.Consumer>
+                        {([theme]) => (
+                            <button style={{ backgroundColor: theme }}>Adopt {name}</button>
+                        )}
+                    </ThemeContext.Consumer>
                     <p>{description}</p>
                 </div>
             </div>
