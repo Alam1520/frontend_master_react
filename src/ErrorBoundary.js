@@ -1,9 +1,10 @@
 import { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 class ErrorBoundary extends Component {
     state = {
-        hasError: false
+        hasError: false,
+        redirect: false
     }
 
     static getDerivedStateFromError() {
@@ -16,7 +17,18 @@ class ErrorBoundary extends Component {
         console.error("ErrorBoundary caught an error", error, info);
     }
 
+    componentDidUpdate() {
+        if (this.state.hasError) {
+            setTimeout(() => {
+                this.setState({ hasError: true });
+            }, 5000);
+        }
+    }
+
     render() {
+        if (this.state.redirect) {
+            return <Navigate to="/" />
+        }
         if (this.state.hasError) {
             return (
                 <h2>
