@@ -10,7 +10,7 @@ class Details extends Component {
 
   async componentDidMount() {
     const res = await fetch(
-      `http://pets-v2.dev-apis.com/pets?id=${this.props.params.id}`
+      `https://pets-v2.dev-apis.com/pets?id=${this.props.params.id}`
     );
     const json = await res.json();
     this.setState({ loading: false, ...json.pets[0] });
@@ -50,7 +50,7 @@ class Details extends Component {
               <div>
                 <h1>Would you like to adopt {name}?</h1>
                 <div className="buttons">
-                  <a href="https://bit.ly/pet-adopt">Yes!</a>
+                  <a href="httpss://bit.ly/pet-adopt">Yes!</a>
                   <button onClick={this.toggleModal}>No!!</button>
                 </div>
               </div>
