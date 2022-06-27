@@ -29,7 +29,8 @@ class ErrorBoundary extends Component {
       return (
         <h2>
           There was an error with this listing. <Link to="/">Click here</Link>{" "}
-          to back to the home page or wait five seconds and we will do it for you.
+          to back to the home page or wait five seconds and we will do it for
+          you.
         </h2>
       );
     }
